@@ -49,15 +49,19 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      {grid}
+      {/* {grid} */}
+
       {/* <Grid height={10} width={10} /> */}
       <div className="w-1/2 mx-auto mt-10">
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
+        {grid.map((row, index) => {
+          return (
+            <div>
+              {row.map((value, rowIndex) => {
+                return <span>{value}</span>;
+              })}
+            </div>
+          );
+        })}
       </div>
     </>
   );
