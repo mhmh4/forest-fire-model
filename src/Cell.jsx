@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Cell() {
+function Cell({ i, j }) {
   const [status, setStatus] = useState(0);
 
   function onClick() {
@@ -8,12 +8,12 @@ function Cell() {
   }
 
   return (
-    <span
-      className="border border-slate-500 p-4 select-none cursor-pointer hover:bg-blue-100"
+    <div
+      className="border border-slate-500 w-[30px] h-[30px] select-none cursor-pointer hover:bg-blue-100 inline-block"
       onClick={onClick}
     >
       {status}
-    </span>
+    </div>
   );
 }
 
