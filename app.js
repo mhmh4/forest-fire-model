@@ -11,11 +11,16 @@ let grid = [...Array(m)].map(() => Array(n));
 console.log(grid);
 
 function drawCells() {
-  for (let j = 0; j < canvas.height; j += CELL_LENGTH) {
-    for (let i = 0; i < canvas.width; i += CELL_LENGTH) {
-      ctx.rect(i, j, CELL_LENGTH, CELL_LENGTH);
-      ctx.stroke();
+  let x = 0;
+  let y = 0;
+
+  for (let j = 0; j < grid[0].length; j++) {
+    x = 0;
+    for (let i = 0; i < grid.length; i++) {
+      ctx.strokeRect(x, y, CELL_LENGTH, CELL_LENGTH);
+      x += CELL_LENGTH;
     }
+    y += CELL_LENGTH;
   }
 }
 
