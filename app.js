@@ -20,12 +20,14 @@ function drawCells() {
       ctx.strokeRect(x, y, CELL_LENGTH, CELL_LENGTH);
       if (grid[i][j] == 0) {
         ctx.fillStyle = "brown";
-        ctx.fillRect(x, y, CELL_LENGTH, CELL_LENGTH);
       }
       if (grid[i][j] == 1) {
+        ctx.fillStyle = "green";
       }
       if (grid[i][j] == 2) {
+        ctx.fillStyle = "red";
       }
+      ctx.fillRect(x, y, CELL_LENGTH, CELL_LENGTH);
       x += CELL_LENGTH;
     }
     y += CELL_LENGTH;
