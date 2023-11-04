@@ -37,6 +37,30 @@ function drawCells() {
   }
 }
 
+function hasBurningNeighbor(grid, i, j) {
+  for (let x of [-1, 0, 1]) {
+    for (let y of [-1, 0, 1]) {
+      if (x == 0 && y == 0) {
+        continue;
+      }
+      const neighborI = i + x;
+      const neighborj = j + y;
+      if (
+        neighborI < 0 ||
+        neighborI == grid.length ||
+        neighborj < 0 ||
+        neighborj == grid[0].length
+      ) {
+        continue;
+      }
+      if (grid[neighborI][neighborj] == 2) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 const p = 0.5;
 const f = 0.1;
 
@@ -55,7 +79,7 @@ setInterval(() => {
         nextGrid[i][j] = 1;
       }
 
-      if (isTree && Math.random() < f) {
+      if (isTree && (Math.random() < f || hasBurningNeighbor(grid, i, j))) {
         nextGrid[i][j] = 2;
       }
 
