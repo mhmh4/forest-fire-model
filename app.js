@@ -37,8 +37,8 @@ function drawCells() {
   }
 }
 
-const p = 50;
-const f = 10;
+const p = 0.5;
+const f = 0.1;
 
 drawCells(grid);
 
@@ -47,15 +47,18 @@ setInterval(() => {
 
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[0].length; j++) {
+      const isEmpty = grid[i][j] == 0;
       const isTree = grid[i][j] == 1;
       const isBurning = grid[i][j] == 2;
 
-      if (isTree && Math.random() < f / 100) {
-        nextGrid[i][j] = 2;
-      }
-      if (!isTree && Math.random() < p / 100) {
+      if (isEmpty && Math.random() < p) {
         nextGrid[i][j] = 1;
       }
+
+      if (isTree && Math.random() < f) {
+        nextGrid[i][j] = 2;
+      }
+
       if (isBurning) {
         nextGrid[i][j] = 0;
       }
