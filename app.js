@@ -22,7 +22,7 @@ function drawCells() {
     for (let i = 0; i < grid.length; i++) {
       ctx.strokeRect(x, y, CELL_LENGTH, CELL_LENGTH);
       if (grid[i][j] == 0) {
-        ctx.fillStyle = "brown";
+        ctx.fillStyle = "black";
       }
       if (grid[i][j] == 1) {
         ctx.fillStyle = "green";
