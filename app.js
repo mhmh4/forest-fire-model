@@ -38,16 +38,17 @@ const p = 50;
 
 drawCells(grid);
 
-let nextGrid = structuredClone(grid);
+setInterval(() => {
+  let nextGrid = structuredClone(grid);
 
-for (let i = 0; i < grid.length; i++) {
-  for (let j = 0; j < grid[0].length; j++) {
-    if (Math.random() < p / 100) {
-      nextGrid[i][j] = 1;
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[0].length; j++) {
+      if (Math.random() < p / 100) {
+        nextGrid[i][j] = 1;
+      }
     }
   }
-}
 
-grid = nextGrid;
-
-drawCells(nextGrid);
+  grid = nextGrid;
+  drawCells(nextGrid);
+}, 1000);
