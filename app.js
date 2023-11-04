@@ -6,7 +6,7 @@ const CELL_LENGTH = 25;
 const m = canvas.width / CELL_LENGTH;
 const n = canvas.height / CELL_LENGTH;
 
-let grid = [...Array(m)].map(() => Array(n));
+let grid = [...Array(m)].map(() => Array(n).fill(0));
 
 console.log(grid);
 
@@ -18,6 +18,14 @@ function drawCells() {
     x = 0;
     for (let i = 0; i < grid.length; i++) {
       ctx.strokeRect(x, y, CELL_LENGTH, CELL_LENGTH);
+      if (grid[i][j] == 0) {
+        ctx.fillStyle = "brown";
+        ctx.fillRect(x, y, CELL_LENGTH, CELL_LENGTH);
+      }
+      if (grid[i][j] == 1) {
+      }
+      if (grid[i][j] == 2) {
+      }
       x += CELL_LENGTH;
     }
     y += CELL_LENGTH;
