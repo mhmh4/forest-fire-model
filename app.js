@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = 1000;
 canvas.height = 500;
 
-const CELL_LENGTH = 10;
+const CELL_LENGTH = 20;
 
 const m = canvas.width / CELL_LENGTH;
 const n = canvas.height / CELL_LENGTH;
@@ -61,8 +61,8 @@ function hasBurningNeighbor(grid, i, j) {
   return false;
 }
 
-const p = 0.5;
-const f = 0.1;
+const p = 0.06;
+const f = 0.001;
 
 drawCells(grid);
 
@@ -91,4 +91,4 @@ setInterval(() => {
 
   grid = nextGrid;
   drawCells(nextGrid);
-}, 1000);
+}, 100);
