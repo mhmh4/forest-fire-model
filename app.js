@@ -1,7 +1,10 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const CELL_LENGTH = 25;
+canvas.width = 1000;
+canvas.height = 500;
+
+const CELL_LENGTH = 10;
 
 const m = canvas.width / CELL_LENGTH;
 const n = canvas.height / CELL_LENGTH;
